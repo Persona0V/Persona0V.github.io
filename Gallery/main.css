@@ -1,0 +1,57 @@
+body{
+	background-color: rgb(245, 230, 186);
+}
+.main{
+     width:60%;
+     margin: auto;
+
+	 border: 1px solid black;
+	 flex-wrap: wrap;
+	 display: flex;
+	 justify-content:center;
+	 background-color: rgb(186, 201, 245);
+}
+.item{
+	width: 44%;
+	height: 400px;
+	background-color: blue;
+	margin: 8px;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.5;
+	transition: 1s;
+}
+.item:hover{
+    box-shadow: 7px 6px 13px;
+    border-radius: 5%;
+    opacity: 1;
+    transition: 1s;
+    transform: scale(1.1) rotate(10deg);
+}
+.img1{
+	background-image: url(img/02.jpg);
+}
+.img2{
+	background-image: url(img/03.jpg);
+}
+.img3{
+	background-image: url(img/04.jpg);
+}
+.img4{
+	background-image: url(img/05.jpg);
+}	
+.img5{
+	background-image: url(img/06.jpg);
+}	
+.img6{
+	background-image: url(img/07.jpg);
+}	
+.img7{
+	background-image: url(img/08.jpg);
+}	
+.img8{
+	background-image: url(img/09.jpg);
+}	
+h1{
+	text-align: center;
+}
