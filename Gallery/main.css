@@ -1,5 +1,9 @@
 body{
-	background-color: rgb(245, 230, 186);
+	background-image: url(img/water-66.gif);
+	background-size: cover;
+	background-position: center;
+
+	background-attachment: fixed;
 }
 .main{
      width:60%;
@@ -22,7 +26,7 @@ body{
 	transition: 1s;
 }
 .item:hover{
-    box-shadow: 7px 6px 13px;
+    box-shadow: 7px 6px 13px black;
     border-radius: 5%;
     opacity: 1;
     transition: 1s;
