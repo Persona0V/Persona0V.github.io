@@ -1,14 +1,105 @@
+*{
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+body{
+	margin: 0;
+}
 .navigation{
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 120px;
 }
 .logo{
-    border: 1px solid black;
+	font-family: symbol;
     margin-left:  100px ;
 }
 .nav-links{
-    border: 1px solid black;
     margin-right: 100px;
+}
+.nav-links >a{
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+	padding: 5px;
+	transition: 0.6s;
+}
+.nav-links >a:hover{
+	background-color: black;
+	color: white;
+}
+.header{
+	height: 650px;
+	background-image: url(img/023.jpg);
+	background-size: 100% 100%;
+	background-position: center;
+	transition: 1s;
+}
+.header:hover{
+	background-size: 130% 130%;
+}
+.blackout{
+	background-color: rgba(0,0,0,0.8);
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-content{
+	color: white;
+	text-align: center;
+}
+.header-content > h1{
+    font-size: 50px;
+}
+.header-content > h2{
+    font-size: 30px;
+}
+.header-content >a{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(0,137,123);
+    display: inline-block;
+    width: 217px;
+    padding-top: 15px;
+    padding-bottom: 15px;  
+
+}
+.header-content > a:hover{
+     border: 3px solid white;
+     background-color: rgba(0,137,123,0);
+     transition: 0.3s;
+}
+.about{
+	text-align: center;
+}
+.about-top{
+	margin-bottom: 40px;
+}
+.about-bot{
+	display: flex;
+	justify-content: space-around;
+}
+.about-item{
+	width: 30%;
+}
+.services{
+	background-color: #e4fdf9;
+	}
+.services-top{
+	text-align: center;
+}
+.services-bot{
+	display: flex;
+	flex-wrap: wrap;  
+	justify-content: space-around;
+	text-align: center;
+}
+.services-item{
+	width: 30%;
+	background-color: white;
+	margin: 20px;
+	padding-top: 17px;
+	padding-bottom: 17px;
 }
