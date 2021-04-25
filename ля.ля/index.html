@@ -1,94 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Сокровища пирата</title>
+	<title></title>
 	<style type="text/css">
-		body{
-			background-color: rgb(0,0,0);
-		}
-		.main{
-			width: 800px;
-			margin: auto;
-			border: 1px solid black;
-			border-radius: 5px;
-			background-color: rgb(255,238,230);
-		}
-		img{
-			width: 100%;
-			height: 500px;
-			}
-		h1{
-			text-align: center;
-			font-family: cursive;
-		}
+		
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<div>
-		<h1>Поиск сокровищ</h1>
-		<img id="map" src="01.jpg">
-		<p id="hint">Подсказки</p>
+	<form>
+		<label>Имя:</label>
+		<input id="name" type="text">
+		<br>
+		<label>Мат:</label>
+		<input id="math" type="text">
+		<br>
+		<label>Рус:</label>
+		<input id="rus" type="text">
+		<br>
+		<label>Инф:</label>
+		<input id="cs" type="text">
+		<br>
+		<input id="addStudent" type="button" value="Добавить ученика">
+		<br>
+		<input id="SortStudent" type="button" value="Сортировать">
+
+	</form>
+	<div id="info">
+		
 	</div>
 
 	<script type="text/javascript">
-		var map= {
-			width:800,
-			height:500
-		}
-		var clicks= 0;
-		var target= {
-			x:Math.floor(Math.random()*map.width),
-			y:Math.floor(Math.random()*map.height)
-		}
-		function GetDistance(target,ClickPos)
+		 class Student 
 		{
-			var dy= target.y-ClickPos.y;
-			var dx= target.x-ClickPos.x;
-			var dist = Math.sqrt (dx*dx + dy*dy);
-			return dist;
-		}
-		function GetHint(distance)
-		{
-			var hint = "тут будет подсказка";
-			if(distance < 10)
-				hint= "Очень горячо"
-			else if(distance < 20)
-				hint = "Горячо";
-			else if (distance < 40) 
-				hint = "Тепло";
-			else if(distance < 80)
-				hint = "Прохладно";
-			else if(distance < 160)
-				hint = "Холодно";
-			else if(distance < 320)
-				hint="Очень холодно";
-			else 
-				hint="Брр...";
+			Name;
+			Math;
+			Rus;
+			Cs;
+			Average;
 
-			return hint;
-		}
 
-		function GameUpdate(event)
-		{
-			clicks++;
-			var ClickPos ={
-				x: event.offsetX,
-				y: event.offsetY
-			}
-
-			var dist = GetDistance(target,ClickPos);
-			var hint = GetHint(dist);
-			$("#hint").text(hint);
-
-			if(dist < 5)
+			constructor(name, math, rus, cs)
 			{
-				alert("Победа!, слелано киков:" + clicks)
-			}
+				this.Name = name;
+				this.Math = math;
+				this.Rus = rus;
+				this.Cs = cs;
+				this.Average = this.CalcAverage();
 
+			}
+			CalcAverage()
+			{
+				var sum = this.Math + this.Rus + this.Cs;
+				var count = 3;
+				var result = sum/count;
+
+				return result;
+			}
 		}
 
-		$("#map").click(GameUpdate);
+		
+		
+	</script>
+	<script type="text/javascript">
+		var StudentArray = [];
+		function BubbleSort()
+		{
+			var n = StudentArray.length;
+			for (var i = 0; i < n; i++) {
+				for(var j = 0; j < n - 1; j++)
+				{
+					if(StudentArray[j].Average > StudentArray[j+1].Average)
+					{
+						var tmp = StudentArray[j];
+						StudentArray[j] = StudentArray[j+1];
+						StudentArray[j+1]= tmp;
+					}
+				}
+			}
+			showStudent();
+		}
+
+		function addStudent()
+		{
+			var studenName = $("#name").val();
+			var math = +$("#math").val();
+			var rus = +$("#rus").val();
+			var cs = +$("#cs").val();
+			console.log(studenName);
+			var stud = new Student(studenName, math, rus, cs);
+			StudentArray.push(stud);
+
+			showStudent();
+		}
+		function showStudent()
+		{
+			$("#info > p").remove();
+			var text ;
+			var n = StudentArray.length;
+			for(var i = 0 ; i < n ; i++)
+			{
+			text= "имя: " + StudentArray[i].Name + "| средняя оценка" + StudentArray[i].Average;
+			$("#info").append("<p>" + text + "</p>");
+			}
+		}
+
+
+		$("#addStudent").click(addStudent);
+		$("#SortStudent").click(BubbleSort);
+
 	</script>
 </body>
 </html>
