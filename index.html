@@ -32,13 +32,19 @@
 			}
 			moveLeft()
 			{
+				if( this.centerX >= 0 && this.centerX <= 600- this.width)
+				{
 				this.centerX = this.centerX - this.speedX;
 				this.draw()
+				}
 			}
 			moveRight()
 			{
+				if( this.centerX >= 0 && this.centerX <= 600- this.width)
+				{
 				this.centerX = this.centerX + this.speedX;
 				this.draw()
+				}
 			}
 			draw()
 			{
@@ -141,12 +147,12 @@
 		//keypress
 		document.addEventListener('keydown', function(event){
     		console.log('keyCode: ', event.keyCode);
-    		if(event.keyCode == 65)//Q
+    		if(event.keyCode == 65)//A
     		{
     			//движение влево
     			platform.moveLeft();
     		}
-    		if(event.keyCode == 68)//E
+    		if(event.keyCode == 68)//D
     		{
     			//движение вправо
     			platform.moveRight();
