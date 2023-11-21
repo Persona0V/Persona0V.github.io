@@ -1,0 +1,100 @@
+*{
+	font-family: fangsong;
+}
+.navigation{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+}
+.logo{
+	font-size: 25px;
+    margin-left:  80px ;
+	color: rgb(242, 12, 150);
+}
+.nav-links{
+    margin-right: 100px;
+}
+.nav-links >a{
+	text-decoration: none;
+	color: black;
+	margin: 10px;
+	padding: 5px;
+	transition: 0.6s;
+}
+.nav-links >a:hover{
+	background-color:rgb(242, 12, 150);
+	color: white;
+}
+.header{
+	height: 750px;
+	background-image: url(img/004.jpg);
+}
+.blackout{
+	background-color: rgba(0,0,0,0.4);
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-content{
+	color: white;
+	text-align: center;
+	padding-left: 150px;
+	padding-right: 150px; 
+}
+.header-content >a{
+    color: white;
+    text-orientation: none;
+    background-color: rgb(145, 232, 250);
+}
+.header-content > h1{
+    color: rgb(145, 232, 250);
+}
+.header-content > h2{
+    font-size: 20px;
+	padding-bottom: 50px;  
+}
+.header-content >a{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(134, 211, 227);
+    display: inline-block;
+    width: 217px;
+    padding-top: 15px;
+    padding-bottom: 15px;  
+
+}
+.header-content > a:hover{
+     border: 3px solid white;
+     background-color: rgba(0,137,123,0);
+     transition: 0.3s;
+}
+.about{
+	text-align: center;
+}
+.about-top{
+	margin-bottom: 40px;
+}
+.about-top >p{
+	font-size: 20px;
+	padding-left: 300px;
+	padding-right: 300px; 
+}
+.services{
+	background-color: #d2f5fc;
+	}
+.services-top{
+	text-align: center;
+	padding-top: 0.1px;
+	padding-bottom: 17px;
+}
+.services-top >p{
+	font-size: 20px;
+	padding-left: 300px;
+	padding-right: 300px;
+}
+.img{
+	text-align: center;
+}
