@@ -30,7 +30,12 @@
 .header{
 	height: 750px;
 	background-image: url(img/su3.jpg);
-
+    background-size: 100% 100%;
+	background-position: center;
+	transition: 1s;
+}
+.header:hover{
+	background-size: 120% 120%;
 }
 .blackout{
 	background-color: rgba(0,0,0,0.4);
