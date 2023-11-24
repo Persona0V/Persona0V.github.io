@@ -1,8 +1,8 @@
 *{
-	font-family: fangsong;
+	font-family: Century Gothic;
 }
 .navigation{
-    border: 1px solid black;
+    border: 1px solid rgb(242, 12, 150) ;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +29,13 @@
 }
 .header{
 	height: 750px;
-	background-image: url(img/004.jpg);
+	background-image: url(img/014.jpg);
+	background-size: 100% 100%;
+	background-position: center;
+	transition: 1s;
+}
+.header:hover{
+	background-size: 120% 120%;
 }
 .blackout{
 	background-color: rgba(0,0,0,0.4);
