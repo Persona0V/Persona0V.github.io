@@ -1,163 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JS</title>
-	<style type="text/css">
-		canvas{
-			border: 1px solid black;
-		}
-	</style>
+	<title>Dead by Daylight</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 </head>
 <body>
-	<canvas id="canvas" width="600" height="600"></canvas>
+    <div class="navigation">
+    	<div class="logo">Dead by daylight</div>
+    	<div class="nav-links">
+    		<a href="#">Дом</a>
+    		<a href="04.html">Игра</a>
+    		<a href="#">Сообщество</a>
+    		<a href="03.html">Галерея новостей</a>
+    	</div>
+    </div>
 
-	<script type="text/javascript">
-		var canvas = document.getElementById("canvas");
-		var gc = canvas.getContext("2d");
+    <div class="header">
+    	<div class="blackout">
+    		<div class="header-content">
+    			<h1>Dead by Daylight</h1>
+    			<a href="https://www.youtube.com/@westhaimerTV">Узнать об игре подробнее</a>
+                <h2>Добро пожаловать в смертельно опасную игру в прятки</h2>
+    		</div>
+    	</div>
+    </div>
+    <div class="about-bot">
+        <div class="about-item">
+            <h2>ВЫБЕРИ ЗА КОГО БУДЕШЬ ИГРАТЬ ! </h2>
+			<div class="services-bot">
+				<div>
+					<img src="img/40.png" width="50px" height="50px">
+				</div>
+				<div>
+					<img src="img/41.png" width="50px" height="50px">
+         </div>
+    </div>
+    
+    <div class="services">
+    	<div class="services-top">
+    		<h1>Играйть за
+                охотников (соло) </h1>
+                <div class="services-bot">
+					<div class="services-item">
+						<img src="img/004.png" width="250px" height="250px">
+						<h2>ОНИ</h2>
+						<p>Настоящее имя убийцы — Казан Ямаока (англ. Kazan Yamaoka). Чудовищный убийца, способный вбирать силу из крови раненых жертв и превращаться в свирепого демона за счёт накопленный энергии. С помощью силы "Гнев Ямаоки" он может стремглав бросаться на выживших и наносить убийственные удары своей дубинкой-канабо.</p>
+					</div>
+					<div class="services-item">
+						<img src="img/27.png" width="250px" height="250px">
+						<h2>Охотница</h2>
+						<p>Охотница (англ. "The Huntress") — Доступен для выбора сразу после активации бесплатного дополнения "Колыбельная для темноты". Настоящее имя убийцы — Анна, фамилия неизвестна. Убийца, которая может поражать выживших на расстоянии, бросая охотничьи топоры</p>
+					</div>
+					<div class="services-item">
+						<img src="img/26.png" width="250px" height="250px">
+						<h2>Медсестра</h2>
+						<p>Медсестра (англ. "The Nurse") Доступена для выбора сразу после активации бесплатного дополнения "Последний вздох". Настоящее имя убийцы — Салли Смитсон (англ. Sally Smithson). Быстрая и смертоносная убийца, которая может совершать скачки сквозь препятствия и резко сокращать дистанцию благодаря своей силе - Последний вздох Спенсера.</p>
+					</div>
+				</div>
+                <br>
+            <a href="01.html" >Подробнее об игровом процессе</a>
+    	</div>
+    </div>
 
-		class Platform
-		{
-			centerX;
-			centerY;
-			width;
-			height;
-			speedX;
-			constructor(x,y,w,h,speed)
-			{
-				this.centerX = x;
-				this.centerY = y;
-				this.width = w;
-				this.height = h;
-				this.speedX = speed;
-			}
-			moveLeft()
-			{
-				if( this.centerX >= 0 && this.centerX <= 600- this.width)
-				{
-				this.centerX = this.centerX - this.speedX;
-				this.draw()
-				}
-			}
-			moveRight()
-			{
-				if( this.centerX >= 0 && this.centerX <= 600- this.width)
-				{
-				this.centerX = this.centerX + this.speedX;
-				this.draw()
-				}
-			}
-			draw()
-			{
-				gc.strokeRect(this.centerX,this.centerY,this.width,this.height);
-			}
-
-		}
-		class Ball
-		{
-			centerX;
-			centerY;
-			size;
-			speedX = 0;
-			speedY = 0;
-			constructor(x,y,size)
-			{
-				this.centerX = x;
-				this.centerY = y;
-				this.size = size;
-			}
-			setSpeed(vec_x, vec_y)
-			{
-				this.speedX = vec_x;
-				this.speedY = vec_y;
-			}
-			move()
-			{
-				this.centerX = this.centerX + this.speedX;
-				this.centerY = this.centerY + this.speedY;
-				this.checkBorder();
-				this.draw();
-			}
-			draw()
-			{
-				circle(this.centerX,this.centerY,this.size,false);
-			}
-			checkBorder()
-			{
-				if(this.centerX >= 600 || this.centerX <= 0)
-				{
-					this.reflectX();
-				}
-				if(this.centerY <= 0)
-				{
-					this.reflectY();
-				}
-			}
-			checkCollision(platform)
-			{
-				if(platform.centerX <= this.centerX && this.centerX <= platform.centerX + platform.width)
-				{
-					if(platform.centerY <= this.centerY && this.centerY <= platform.centerY + platform.height)
-					{
-						this.reflectY();
-					}
-				}
-			}
-			reflectX()
-			{
-				this.speedX = -this.speedX;
-			}
-			reflectY()
-			{
-				this.speedY = -this.speedY;
-			}
-		}
-		function circle(x,y,radius,flag)
-		{
-			gc.beginPath();
-			gc.arc(x,y,radius,0,Math.PI*2);
-			if(flag == true)
-			{
-				gc.fill();
-			}
-			else
-			{
-				gc.stroke();
-			}
-		}
-
-		var ball_obj = new Ball(100, 100, 10);
-		ball_obj.setSpeed(2,1);
-		var ball_obj1 = new Ball(100, 100, 10);
-		ball_obj1.setSpeed(-1,2);
-		var platform = new Platform(5,400,80,20,10);
-
-		function update()
-		{
-			gc.clearRect(0,0,600,600);
-			ball_obj.checkCollision(platform);
-			ball_obj.move();
-			ball_obj1.checkCollision(platform);
-			ball_obj1.move();
-			platform.draw();
-		}
-		setInterval(update,16);// 60 fps
-
-		//keyup
-		//keydown
-		//keypress
-		document.addEventListener('keydown', function(event){
-    		console.log('keyCode: ', event.keyCode);
-    		if(event.keyCode == 65)//A
-    		{
-    			//движение влево
-    			platform.moveLeft();
-    		}
-    		if(event.keyCode == 68)//D
-    		{
-    			//движение вправо
-    			platform.moveRight();
-    		}
-		});
-	</script>
+    <div class="services-bottom">
+    		<h2>Играйть за
+                выживших (кооператив)</h2>
+				<div class="services-bot">
+					<div class="services-item">
+						<img src="img/24.png" width="250px" height="250px">
+						<h2>Фенг Мин</h2>
+						<p>Фенг Мин (англ. "Feng Min") — один из персонажей игры Dead by Daylight женского пола в роли выжившего.Выживший с сильным духом соперничества. Она может сосредоточиться на выполнении задач и быстро переключать внимание с одного на другое.</p>
+					</div>
+					<div class="services-item">
+						<img src="img/22.png" width="250px" height="250px">
+						<h2>Кейт Денсон</h2>
+						<p>Кейт Денсон (англ. "Kate Denson") — один из персонажей игры Dead by Daylight женского пола в роли выжившего. Певица-оптимист, прекрасно ориентируется на местности.</p>
+					</div>
+					<div class="services-item">
+						<img src="img/25.png" width="250px" height="250px">
+						<h2>Мэг Томас</h2>
+						<p>Мэг Томас (англ. "Meg Thomas") — один из персонажей игры Dead by Daylight женского пола в роли выжившего. Доступен для выбора сразу после покупки основной игры. Энергичный атлет, способная сбежать почти от любого убийцы.</p>
+					</div>
+                </div>
+                <br>
+         <a href="02.html">Подробнее об игровом процессе</a>
+    </div>
+</div>
 </body>
 </html>
