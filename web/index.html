@@ -104,18 +104,23 @@
 			'Human: Fall Flat': 0
 		};
 
+				
+
 		let totalVotes = 0;
 
 		function vote(game) {
+			// Проверяем, голосовал ли пользователь ранее
 			const hasVoted = localStorage.getItem('hasVoted');
 			if (hasVoted) {
 				alert("Вы уже проголосовали!");
 				return;
 			}
 
+			// Увеличиваем количество голосов
 			if (votes[game] !== undefined) {
 				votes[game]++;
 				totalVotes++;
+				// Сохраняем информацию о голосовании в localStorage
 				localStorage.setItem('hasVoted', 'true');
 				displayResults();
 			} else {
@@ -125,18 +130,12 @@
 
 		function displayResults() {
 			const resultsDiv = document.getElementById('results');
-			resultsDiv.innerHTML = '';
+			resultsDiv.innerHTML = ''; // очищаем предыдущие результаты
 
 			for (const game in votes) {
 				const percent = totalVotes > 0 ? (votes[game] / totalVotes) * 100 : 0;
-
 				const resultItem = document.createElement('div');
-				resultItem.innerHTML = `
-					<strong>${game}: ${votes[game]} голосов (${percent.toFixed(1)}%)</strong>
-					<div class="progress">
-						<div class="progress-bar" style="width: ${percent}%;">${votes[game]}</div>
-					</div>
-				`;
+				resultItem.innerHTML = `${game}: ${percent.toFixed(1)}%`;
 				resultsDiv.appendChild(resultItem);
 			}
 		}
