@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Crafter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="body">
+        <div class="navigation">
+            <div class="logo">
+                <a href="index.html"><h2>IgroPark</h2></a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><h5>Главная</h5></a>
+                <a href="games.html"><h5>Все игры</h5></a>
+                <a href="sale.html"><h5>Sale</h5></a>
+                <input type="text" class="search" placeholder="Поиск" >
+                <a class="searchBtn"> 
+                    <i class="fa fa-search"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="services"> 
+            <h1>Planet Crafter</h1>
+            <img src="img/12.jpg"><br> <br> 
+            <p>Вы - Planet Crafter, отправленный на безымянную планету в системе, регулярно используемой для путешествий, и поэтому эта планета недавно стала представлять интерес.</p>
+            <br> <br> 
+            <div class="services-item">
+                <h3>Минимальные системные требования</h3><br>
+                <ul>
+                    <li><span>ОС: Windows 7</span></li>
+                    <li><span>Процессор: Intel Core2 Duo 2.4GHz or equivalent</span></li>
+                    <li><span>Оперативная память: 4 GB ОЗУ</span></li>
+                    <li><span>Видеокарта: 2GB VRAM</span></li>
+                    <li><span>Место на диске: 3 GB</span></li>
+
+                </ul>
+            </div>
+            <h4>Цена: 0 ₽</h4><br><br><br>
+            <div class="btn-container">
+            <button id="addToCart" class="btn btn-success">Купить</button>                
+            </div>
+       
+            <script>
+                document.getElementById('addToCart').addEventListener('click', function() {
+                    alert('Товар куплен');
+                });
+            </script>
+        </div>
+        <div class="about-us">
+            <a href="us.html">О нас</a>
+            <br>
+            <br>
+            <p>Tехническая поддержка по общим вопросам: help@igropark.com</p>
+            <p>Администрация: igradm@igropark.com</p>
+        </div>
+    </div>
+</body>
+</html>
